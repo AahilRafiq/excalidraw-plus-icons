@@ -14,7 +14,7 @@ export default function () {
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
                     <li><button onClick={() => setOpenModal(true)} className="btn btn-soft btn-primary mr-2">+ Add Icon</button></li>
-                    <li><a className="btn btn-outline ml-2"><Github/></a></li>
+                    <li><a href="https://github.com/AahilRafiq/excalidraw-plus-icons" className="btn btn-outline ml-2"><Github/></a></li>
                 </ul>
             </div>
             <IconModal openModal={openModal} setOpenModal={setOpenModal}/>
