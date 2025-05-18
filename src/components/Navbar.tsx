@@ -1,10 +1,23 @@
 import IconModal from "./Modal"
 import { useState } from "react"
 import { Github } from "lucide-react"
+import type { Dispatch, SetStateAction } from "react"
+import { Moon, Sun } from "lucide-react"
 
-export default function () {
+interface IProps {
+    theme: "dark" | "light"
+    setTheme: Dispatch<SetStateAction<"dark" | "light">>
+} 
+
+export default function ({theme, setTheme}:IProps) {
 
     const [openModal, setOpenModal] = useState(false)
+
+    function handleThemeToggle() {
+        setTheme(val => {
+            return val == "dark" ? "light" : "dark"
+        })
+    }
 
     return (
         <div className="navbar bg-base-100 shadow-sm h-2">
@@ -13,6 +26,9 @@ export default function () {
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
+                    <li><button className="btn mx-2 btn-ghost rounded-full" onClick={handleThemeToggle}>
+                        {theme == "dark" ? <Sun/> : <Moon/>}
+                    </button></li>
                     <li><button onClick={() => setOpenModal(true)} className="btn btn-soft btn-primary mr-2">+ Add Icon</button></li>
                     <li><a href="https://github.com/AahilRafiq/excalidraw-plus-icons" className="btn btn-outline ml-2"><Github/></a></li>
                 </ul>
